@@ -3,6 +3,8 @@ package com.stacksimplify.restservices.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stacksimplify.restservices.entities.User;
 import com.stacksimplify.restservices.exception.UserExistsException;
+import com.stacksimplify.restservices.exception.UserNameNotFoundException;
 import com.stacksimplify.restservices.exception.UserNotFoundException;
 import com.stacksimplify.restservices.services.UserService;
 
@@ -33,7 +36,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<Void> createUser(@RequestBody User user,UriComponentsBuilder builder){
+	public ResponseEntity<Void> createUser(@Valid @RequestBody User user,UriComponentsBuilder builder){
 		try {
 			userService.createUser(user);
 			HttpHeaders headers = new HttpHeaders();
@@ -73,9 +76,14 @@ public class UserController {
 		 userService.deleteUserById(id);
 	}
 	
-	@GetMapping("/users/byUsername/{username}")
-	public User findByUsername(@PathVariable("username") String username) {
-		return userService.findByUsername(username);
+	@GetMapping("/users/byUserName/{username}")
+	public User findByUsername(@PathVariable("username") String username) throws UserNameNotFoundException {
+		User user = userService.findByUsername(username);
+		
+		if(user==null) {
+			throw new UserNameNotFoundException("UserName" + " " + username + " " + "Not Found In User Repository");
+		}
+		return user;
 	}
 
 }
