@@ -1,0 +1,16 @@
+  01-ground-zero-base                               [m 34bbaa2 [[34morign/01-ground-zero-base[m] Second Commit
+  02-Hello-World                                    [m 0182c60 [[34morign/02-Hello-World[m] Hello World Base
+  03-JPA-UserMgmtService-Base                       [m ea10b5e [[34morign/03-JPA-UserMgmtService-Base[m] JPA Rest Services Development Completed
+  05-Validations-GlobalExceptionHandler              [m c16e44e [[34morign/05-Validations-GlobalExceptionHandler[m] Validations global exception handler first commit
+  06-SpringBoot-JPA-OneToMany                       [m 015bffd [[34morign/06-SpringBoot-JPA-OneToMany[m] JPA-OneToMany-FirstCommit
+  07-SpringBoot-HATEOAS                             [m 7b11161 [[34morign/07-SpringBoot-HATEOAS[m] HATEOAS-First Commit
+* [32m08-SpringBoot-Internationalization                [m 7b11161 [[34morign/08-SpringBoot-Internationalization[m] HATEOAS-First Commit
+  master                                            [m 7b11161 [[34morign/master[m] HATEOAS-First Commit
+  [31mremotes/orign/01-ground-zero-base                 [m 34bbaa2 Second Commit
+  [31mremotes/orign/02-Hello-World                      [m 0182c60 Hello World Base
+  [31mremotes/orign/03-JPA-UserMgmtService-Base         [m ea10b5e JPA Rest Services Development Completed
+  [31mremotes/orign/05-Validations-GlobalExceptionHandler[m c16e44e Validations global exception handler first commit
+  [31mremotes/orign/06-SpringBoot-JPA-OneToMany         [m 015bffd JPA-OneToMany-FirstCommit
+  [31mremotes/orign/07-SpringBoot-HATEOAS               [m 7b11161 HATEOAS-First Commit
+  [31mremotes/orign/08-SpringBoot-Internationalization  [m 7b11161 HATEOAS-First Commit
+  [31mremotes/orign/master                              [m 7b11161 HATEOAS-First Commit
