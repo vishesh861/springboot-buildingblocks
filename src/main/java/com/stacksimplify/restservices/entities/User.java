@@ -15,37 +15,45 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import org.springframework.hateoas.ResourceSupport;
 @Entity
 @Table(name = "user")
 //@JsonIgnoreProperties({"firstname","lastname"})
-@JsonFilter(value ="userFilter")
+//@JsonFilter(value ="userFilter")
 public class User extends ResourceSupport {
 	
 		
 	@Id
 	@GeneratedValue
+	@JsonView(Views.External.class)
 	private long userid;
 	
 	@NotEmpty(message="Username Cannot Be Left Blank")
 	@Column(name="USER_NAME",length=50,nullable=false,unique=true)
+	@JsonView(Views.External.class)
 	private String username;
 	
 	@Size(min=2,message="Length cannot Be Less Than 2")
 	@Column(name="FIRST_NAME",length=50,nullable=false)
+	@JsonView(Views.External.class)
 	private String firstname;
 	
 	@Column(name="LAST_NAME",length=50,nullable=false)
+	@JsonView(Views.External.class)
 	private String lastname;
 	
 	@Column(name="EMAIL",length=50,nullable=false)
+	@JsonView(Views.Internal.class)
 	private String email;
 	
 	@Column(name="ROLE",length=50,nullable=false)
+	@JsonView(Views.Internal.class)
 	private String role;
 	
 	@Column(name="SSN",length=50,nullable=false,unique=true)
+	@JsonView(Views.Internal.class)
     private String ssn;
 	
 	@OneToMany(mappedBy = "user")
