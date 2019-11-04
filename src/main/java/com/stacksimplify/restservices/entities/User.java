@@ -2,6 +2,7 @@ package com.stacksimplify.restservices.entities;
 
 import java.util.List;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,21 +14,29 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import org.springframework.hateoas.ResourceSupport;
+
+@ApiModel("This is user management service")
 @Entity
 @Table(name = "user")
 public class User extends ResourceSupport {
 	
-		
+	@ApiModelProperty(notes="Auto generated",required=true,position=1)
 	@Id
 	@GeneratedValue
 	private long userid;
 	
+	@ApiModelProperty(notes="Auto generated",required=false,position=2)
+	@Size(min=2,max=40)
 	@NotEmpty(message="Username Cannot Be Left Blank")
 	@Column(name="USER_NAME",length=50,nullable=false,unique=true)
 	private String username;
 	
-	@Size(min=2,message="Length cannot Be Less Than 2")
+	@Size(min=2,max=40,message="Length cannot Be Less Than 2")
 	@Column(name="FIRST_NAME",length=50,nullable=false)
 	private String firstname;
 	
